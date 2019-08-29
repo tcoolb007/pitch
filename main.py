@@ -180,22 +180,22 @@ def trick_play_card(player):
     # HAND (not trick)
     global trick_cds
     
-    inpt = 0
-    while True:
-        inpt = input_number(f"{player.name}({player.show_hand()}): ") - 1
-        if inpt >= 0 and inpt < len(player.hand):
-            print("valid card")
-            pdb.set_trace()
-            break
-        else:
-            print("Invalid card!")
+    inpt = input_number(f"{player.name}({player.show_hand()}): ") - 1
+    #while True:
+     #   inpt = input_number(f"{player.name}({player.show_hand()}): ") - 1
+      #  if inpt >= 0 and inpt < len(player.hand):
+       #     print("valid card")
+        #    break
+    #    else:
+     #       print("Invalid card!")
     
-    while True:
-        if player.hand[inpt].suit == (led or trump): # don't bother checking hand
-            break
-        elif player.has_suit(led) or player.has_suit(trump) or player.has_suit("*"):
-            print("Invalid card!")
-            inpt = trick_play_card(player)
+    #while True:
+     #   if player.hand[inpt].suit == led or \
+      #     player.hand[inpt].suit == trump: # don't bother checking hand
+       #     break
+    #    elif player.has_suit(led) or player.has_suit(trump) or player.has_suit("*"):
+     #       print("Invalid card!")
+      #      inpt = trick_play_card(player)
 
     trick_cds[player.name] = player.play_card(inpt) # play valid card
     return inpt

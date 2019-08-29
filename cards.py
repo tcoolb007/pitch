@@ -30,15 +30,21 @@ class Stack:
             if i.suit == suit:
                 return True
 
+        return False
+
     def has_number(self,number):
         for i in self.hand:
             if i.number == number:
                 return True
 
+        return False
+
     def has_value(self,value):
         for i in self.hand:
             if i.value == value:
                 return True
+
+        return False
 
 class Deck(Stack):
     def __init__(self,numbers=False,suits=False):
